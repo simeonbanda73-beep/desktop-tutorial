@@ -9,20 +9,20 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="../index.html"><img src="../images/hd-media-logo.svg" alt="HD Media Logo"></a>
+            <a href="../index.php"><img src="../images/hd-media-logo.svg" alt="HD Media Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="Services.html">Services</a></li>
-            <li><a href="Portfolio.html" class="active">Portfolio</a></li>
-            <li><a href="Pricing.html">Pricing</a></li>
-            <li><a href="Team.html">Team</a></li>
-            <li><a href="Testimonials.html">Testimonials</a></li>
-            <li><a href="Process.html">Process</a></li>
-            <li><a href="FAQ.html">FAQ</a></li>
-            <li><a href="Bookings.html">Bookings</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="Services.php">Services</a></li>
+            <li><a href="Portfolio.php" class="active">Portfolio</a></li>
+            <li><a href="Pricing.php">Pricing</a></li>
+            <li><a href="Team.php">Team</a></li>
+            <li><a href="Testimonials.php">Testimonials</a></li>
+            <li><a href="Process.php">Process</a></li>
+            <li><a href="FAQ.php">FAQ</a></li>
+            <li><a href="Bookings.php">Bookings</a></li>
+            <li><a href="About.php">About</a></li>
+            <li><a href="Contact.php">Contact</a></li>
         </ul>
     </nav>
     <section class="portfolio">
@@ -172,7 +172,7 @@
                         item.className = 'gallery-item';
                         item.setAttribute('data-category', 'minster');
                         item.innerHTML = `
-                            <img src="images/${photo}" alt="Minster Fasin - Photo ${index + 1}">
+                            <img src="../images/${photo}" alt="Minster Fasin - Photo ${index + 1}">
                             <div class="gallery-info">
                                 <div class="gallery-category">MINSTER FASIN</div>
                                 <div class="gallery-title">Minster Fasin Event ${index + 1}</div>
