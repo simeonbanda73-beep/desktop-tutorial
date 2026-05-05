@@ -11,20 +11,20 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html"><img src="images/hd-media-logo.svg" alt="HD Media Logo"></a>
+            <a href="index.php"><img src="images/hd-media-logo.svg" alt="HD Media Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Pages/Services.html">Services</a></li>
-            <li><a href="Pages/Portfolio.html">Portfolio</a></li>
-            <li><a href="Pages/Pricing.html">Pricing</a></li>
-            <li><a href="Pages/Team.html">Team</a></li>
-            <li><a href="Pages/Testimonials.html">Testimonials</a></li>
-            <li><a href="Pages/Process.html">Process</a></li>
-            <li><a href="Pages/FAQ.html">FAQ</a></li>
-            <li><a href="Pages/Bookings.html">Bookings</a></li>
-            <li><a href="Pages/About.html">About</a></li>
-            <li><a href="Pages/Contact.html">Contact</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Pages/Services.php">Services</a></li>
+            <li><a href="Pages/Portfolio.php">Portfolio</a></li>
+            <li><a href="Pages/Pricing.php">Pricing</a></li>
+            <li><a href="Pages/Team.php">Team</a></li>
+            <li><a href="Pages/Testimonials.php">Testimonials</a></li>
+            <li><a href="Pages/Process.php">Process</a></li>
+            <li><a href="Pages/FAQ.php">FAQ</a></li>
+            <li><a href="Pages/Bookings.php">Bookings</a></li>
+            <li><a href="Pages/About.php">About</a></li>
+            <li><a href="Pages/Contact.php">Contact</a></li>
         </ul>
     </nav>
 
@@ -38,9 +38,9 @@
         
         <!-- Call-to-Action Buttons -->
         <div class="cta-buttons">
-            <a href="Pages/Bookings.html" class="cta-button cta-button-primary">📅 Book Now</a>
-            <a href="Pages/Portfolio.html" class="cta-button cta-button-secondary">🖼️ View Portfolio</a>
-            <a href="Pages/Pricing.html" class="cta-button cta-button-tertiary">💰 Pricing</a>
+            <a href="Pages/Bookings.php" class="cta-button cta-button-primary">📅 Book Now</a>
+            <a href="Pages/Portfolio.php" class="cta-button cta-button-secondary">🖼️ View Portfolio</a>
+            <a href="Pages/Pricing.php" class="cta-button cta-button-tertiary">💰 Pricing</a>
         </div>
 
         <!-- Stats Section -->
@@ -165,7 +165,7 @@
                 </div>
             </div>
             <div class="testimonials-link">
-                <a href="Pages/Testimonials.html">View All Testimonials →</a>
+                <a href="Pages/Testimonials.php">View All Testimonials →</a>
             </div>
         </div>
 
