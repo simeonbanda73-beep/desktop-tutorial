@@ -10,29 +10,29 @@
     <nav class="navbar">
         <div class="logo">
 
-            <a href="../index.html"><img src="../images/hd-media-logo.svg" alt="HD Media Logo"></a>
+            <a href="../index.php"><img src="../images/hd-media-logo.svg" alt="HD Media Logo"></a>
 
         </div>
 
         <ul class="nav-links">
 
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
 
-            <li><a href="Services.html">Services</a></li>
+            <li><a href="Services.php">Services</a></li>
 
-            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Portfolio.php">Portfolio</a></li>
 
-            <li><a href="Pricing.html">Pricing</a></li>
+            <li><a href="Pricing.php">Pricing</a></li>
 
-            <li><a href="Team.html">Team</a></li>
+            <li><a href="Team.php">Team</a></li>
 
-            <li><a href="Testimonials.html">Testimonials</a></li>
+            <li><a href="Testimonials.php">Testimonials</a></li>
 
-            <li><a href="FAQ.html" class="active">FAQ</a></li>
+            <li><a href="FAQ.php" class="active">FAQ</a></li>
 
-            <li><a href="Bookings.html">Bookings</a></li>
+            <li><a href="Bookings.php">Bookings</a></li>
 
-            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Contact.php">Contact</a></li>
 
         </ul>
 
@@ -462,7 +462,7 @@
 
             <p>If you couldn't find your answer above, feel free to contact us directly. We're here to help!</p>
 
-            <a href="Contact.html" style="display: inline-block; padding: 12px 30px; background: #198754; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px;">Contact Us</a>
+            <a href="Contact.php" style="display: inline-block; padding: 12px 30px; background: #198754; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px;">Contact Us</a>
 
         </div>
 
