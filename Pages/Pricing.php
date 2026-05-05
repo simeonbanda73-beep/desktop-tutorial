@@ -9,18 +9,18 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="../index.html"><img src="../images/hd-media-logo.svg" alt="HD Media Logo"></a>
+            <a href="../index.php"><img src="../images/hd-media-logo.svg" alt="HD Media Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="Services.html">Services</a></li>
-            <li><a href="Portfolio.html">Portfolio</a></li>
-            <li><a href="Pricing.html" class="active">Pricing</a></li>
-            <li><a href="Team.html">Team</a></li>
-            <li><a href="Testimonials.html">Testimonials</a></li>
-            <li><a href="Bookings.html">Bookings</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="Services.php">Services</a></li>
+            <li><a href="Portfolio.php">Portfolio</a></li>
+            <li><a href="Pricing.php" class="active">Pricing</a></li>
+            <li><a href="Team.php">Team</a></li>
+            <li><a href="Testimonials.php">Testimonials</a></li>
+            <li><a href="Bookings.php">Bookings</a></li>
+            <li><a href="About.php">About</a></li>
+            <li><a href="Contact.php">Contact</a></li>
         </ul>
     </nav>
 
@@ -41,7 +41,7 @@
                     <li>✓ 50+ edited photos</li>
                     <li>✗ Prints not included</li>
                 </ul>
-                <a href="Bookings.html" class="book-btn">Book Now</a>
+                <a href="Bookings.php" class="book-btn">Book Now</a>
             </div>
 
             <div class="pricing-card featured">
@@ -58,7 +58,7 @@
                     <li>✓ Prints included (20)</li>
                     <li>✓ Same-day preview</li>
                 </ul>
-                <a href="Bookings.html" class="book-btn">Book Now</a>
+                <a href="Bookings.php" class="book-btn">Book Now</a>
             </div>
 
             <div class="pricing-card">
@@ -75,7 +75,7 @@
                     <li>✓ Video highlights</li>
                     <li>✓ Album included</li>
                 </ul>
-                <a href="Bookings.html" class="book-btn">Book Now</a>
+                <a href="Bookings.php" class="book-btn">Book Now</a>
             </div>
 
             <div class="pricing-card">
@@ -90,7 +90,7 @@
                     <li>✓ Multiple angles</li>
                     <li>✓ Color correction</li>
                 </ul>
-                <a href="Contact.html" class="book-btn">Get Quote</a>
+                <a href="Contact.php" class="book-btn">Get Quote</a>
             </div>
 
             <div class="pricing-card">
@@ -106,7 +106,7 @@
                     <li>✓ Color accurate</li>
                     <li>✓ Web-ready format</li>
                 </ul>
-                <a href="Bookings.html" class="book-btn">Book Now</a>
+                <a href="Bookings.php" class="book-btn">Book Now</a>
             </div>
 
             <div class="pricing-card">
@@ -122,7 +122,7 @@
                     <li>✓ 50+ images</li>
                     <li>✓ Fast delivery</li>
                 </ul>
-                <a href="Bookings.html" class="book-btn">Book Now</a>
+                <a href="Bookings.php" class="book-btn">Book Now</a>
             </div>
 
             <div class="pricing-card">
@@ -138,7 +138,7 @@
                     <li>✓ Digital delivery</li>
                     <li>✓ High-res files</li>
                 </ul>
-                <a href="Bookings.html" class="book-btn">Book Now</a>
+                <a href="Bookings.php" class="book-btn">Book Now</a>
             </div>
 
             <div class="pricing-card">
@@ -154,14 +154,14 @@
                     <li>✓ Archives stored</li>
                     <li>✓ Maintenance included</li>
                 </ul>
-                <a href="Contact.html" class="book-btn">Get Details</a>
+                <a href="Contact.php" class="book-btn">Get Details</a>
             </div>
         </div>
 
         <div style="margin-top: 50px; padding: 30px; background: #f0f0f0; border-radius: 10px; text-align: center;">
             <h3>Need a Custom Package?</h3>
             <p>We can create a tailored package based on your specific needs and budget. Contact us for a free consultation.</p>
-            <a href="Contact.html" style="display: inline-block; padding: 12px 30px; background: #198754; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px;">Contact Us</a>
+            <a href="Contact.php" style="display: inline-block; padding: 12px 30px; background: #198754; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px;">Contact Us</a>
         </div>
     </div>
 
