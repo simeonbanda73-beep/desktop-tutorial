@@ -88,6 +88,30 @@ $conn->close();
     </nav>
     <section class="services">
         <div class="services-wrapper">
+           
+            <div class="services-background">
+                <div class="services-gallery">
+                    <?php foreach ($images as $index => $image): ?>
+                        <img src="<?php echo htmlspecialchars($image['image_path']); ?>" 
+                             alt="<?php echo htmlspecialchars($image['image_name']); ?>"
+                             class="gallery-image <?php echo $index === 0 ? 'active' : ''; ?>"
+                             data-index="<?php echo $index; ?>">
+                    <?php endforeach; ?>
+                    
+                    <!-- Gallery Controls (Dots) -->
+                    <div class="gallery-controls">
+                        <?php foreach ($images as $index => $image): ?>
+                            <div class="gallery-dot <?php echo $index === 0 ? 'active' : ''; ?>" 
+                                 onclick="currentSlide(<?php echo $index; ?>)"></div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="services-wrapper">
+           
             <div class="services-container">
                 <h1>Our Photography Services</h1>
                 <p>We offer a range of photography services to capture your special moments beautifully.</p>
@@ -160,26 +184,19 @@ $conn->close();
                     <p>Candid, storytelling photography that captures authentic moments and emotions.</p>
                 </div>
             </div>
-            <div class="services-background">
-                <div class="services-gallery">
-                    <?php foreach ($images as $index => $image): ?>
-                        <img src="<?php echo htmlspecialchars($image['image_path']); ?>" 
-                             alt="<?php echo htmlspecialchars($image['image_name']); ?>"
-                             class="gallery-image <?php echo $index === 0 ? 'active' : ''; ?>"
-                             data-index="<?php echo $index; ?>">
-                    <?php endforeach; ?>
-                    
-                    <!-- Gallery Controls (Dots) -->
-                    <div class="gallery-controls">
-                        <?php foreach ($images as $index => $image): ?>
-                            <div class="gallery-dot <?php echo $index === 0 ? 'active' : ''; ?>" 
-                                 onclick="currentSlide(<?php echo $index; ?>)"></div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
+
         </div>
+
     </section>
+
+
+
+
+
+
+ 
+
+
 
     <script>
         let currentImageIndex = 0;

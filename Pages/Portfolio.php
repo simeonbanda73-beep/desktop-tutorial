@@ -170,7 +170,7 @@
                     ministerPhotos.forEach((photo, index) => {
                         const item = document.createElement('div');
                         item.className = 'gallery-item';
-                        item.setAttribute('data-category', 'minster');
+                        item.setAttribute('data-category', 'minister');
                         item.innerHTML = `
                             <img src="../images/${photo}" alt="Minster Fasin - Photo ${index + 1}">
                             <div class="gallery-info">

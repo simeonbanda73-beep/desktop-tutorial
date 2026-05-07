@@ -16,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['success_message'] = "Your booking has been received! We'll contact you soon.";
-        header("Location: Pages/Bookings.html");
+        header("Location: Pages/Bookings.php");
         exit();
     } else {
         $_SESSION['error_message'] = "Error: " . $conn->error;
-        header("Location: Pages/Bookings.html");
+        header("Location: Pages/Bookings.php");
         exit();
     }
 }
