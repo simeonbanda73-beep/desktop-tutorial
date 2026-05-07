@@ -1,4 +1,37 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+require "../config.php";
+// session_start();
+
+// Check for success/error messages from session
+$show_inquiry_form = true;
+$success_message = "";
+$error_message = "";
+$form_data = array();
+
+if (isset($_SESSION['inquiry_success']) && $_SESSION['inquiry_success'] === true) {
+    $show_inquiry_form = false;
+    $success_message = $_SESSION['inquiry_message'];
+    $email = $_SESSION['inquiry_email'];
+    $name = $_SESSION['inquiry_name'];
+    // Clear session data
+    unset($_SESSION['inquiry_success']);
+    unset($_SESSION['inquiry_message']);
+    unset($_SESSION['inquiry_email']);
+    unset($_SESSION['inquiry_name']);
+}
+
+if (isset($_SESSION['inquiry_error'])) {
+    $error_message = $_SESSION['inquiry_error'];
+    unset($_SESSION['inquiry_error']);
+}
+
+if (isset($_SESSION['form_data'])) {
+    $form_data = $_SESSION['form_data'];
+    unset($_SESSION['form_data']);
+}
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -62,118 +95,6 @@
 </head>
 <body>
 
-<?php
-// Initialize variables
-$show_inquiry_form = true;
-$success_message = "";
-$error_message = "";
-
-// Check if inquiry form was submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_inquiry'])) {
-    
-    // Get and sanitize form data
-    $name = isset($_POST['name']) ? htmlspecialchars(trim($_POST['name'])) : '';
-    $email = isset($_POST['email']) ? htmlspecialchars(trim($_POST['email'])) : '';
-    $phone = isset($_POST['phone']) ? htmlspecialchars(trim($_POST['phone'])) : '';
-    $subject = isset($_POST['subject']) ? htmlspecialchars(trim($_POST['subject'])) : '';
-    $message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : '';
-    
-    // Validation
-    $errors = array();
-    
-    if (empty($name)) {
-        $errors[] = "Name is required";
-    }
-    
-    if (empty($email)) {
-        $errors[] = "Email is required";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Please enter a valid email address";
-    }
-    
-    if (empty($phone)) {
-        $errors[] = "Phone number is required";
-    }
-    
-    if (empty($subject)) {
-        $errors[] = "Please select a subject";
-    }
-    
-    if (empty($message)) {
-        $errors[] = "Message is required";
-    }
-    
-    // If no errors, send email
-    if (empty($errors)) {
-        
-        // Owner's email - CHANGE THIS TO YOUR EMAIL
-        $owner_email = "owner@hdmedia.com"; // <-- CHANGE THIS!
-        
-        // Email subject
-        $email_subject = "NEW INQUIRY from About Page - $subject";
-        
-        // Email body content
-        $email_body = "";
-        $email_body .= "========================================\n";
-        $email_body .= "NEW CONTACT INQUIRY\n";
-        $email_body .= "========================================\n\n";
-        $email_body .= "Name: $name\n";
-        $email_body .= "Email: $email\n";
-        $email_body .= "Phone: $phone\n";
-        $email_body .= "Subject: $subject\n\n";
-        $email_body .= "Message:\n";
-        $email_body .= "----------------------------------------\n";
-        $email_body .= "$message\n";
-        $email_body .= "----------------------------------------\n\n";
-        $email_body .= "Submitted: " . date("F j, Y, g:i a") . "\n";
-        $email_body .= "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n";
-        $email_body .= "========================================\n";
-        
-        // Email headers
-        $headers = "From: $email\r\n";
-        $headers .= "Reply-To: $email\r\n";
-        $headers .= "X-Mailer: PHP/" . phpversion();
-        
-        // Send email to owner
-        $mail_sent = mail($owner_email, $email_subject, $email_body, $headers);
-        
-        // Send confirmation email to customer
-        if ($mail_sent) {
-            $customer_subject = "We received your inquiry - HD Media";
-            $customer_message = "";
-            $customer_message .= "Dear $name,\n\n";
-            $customer_message .= "Thank you for contacting HD Media!\n\n";
-            $customer_message .= "We have received your inquiry regarding: $subject\n\n";
-            $customer_message .= "Our team will review your message and get back to you within 24 hours.\n\n";
-            $customer_message .= "Here's a copy of your message:\n";
-            $customer_message .= "----------------------------------------\n";
-            $customer_message .= "$message\n";
-            $customer_message .= "----------------------------------------\n\n";
-            $customer_message .= "Best regards,\n";
-            $customer_message .= "HD Media Team\n";
-            $customer_message .= "www.hdmedia.com\n";
-            
-            $customer_headers = "From: $owner_email\r\n";
-            $customer_headers .= "Reply-To: $owner_email\r\n";
-            
-            mail($email, $customer_subject, $customer_message, $customer_headers);
-            
-            // Success - hide form and show success message
-            $show_inquiry_form = false;
-            $success_message = "Thank you $name! Your inquiry has been sent successfully. We'll get back to you within 24 hours.";
-        } else {
-            $error_message = "Sorry, there was a technical error sending your inquiry. Please try again or call us directly.";
-        }
-    } else {
-        // Display validation errors
-        $error_message = "Please fix the following errors:<br>";
-        foreach ($errors as $error) {
-            $error_message .= "• $error<br>";
-        }
-    }
-}
-?>
-
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">
@@ -202,8 +123,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_inquiry'])) {
                 <!-- Success Message -->
                 <div class="alert-success">
                     <h2>✓ Message Sent Successfully!</h2>
-                    <p><?php echo $success_message; ?></p>
-                    <p style="margin-top: 15px;">A confirmation email has been sent to <strong><?php echo $email; ?></strong></p>
+                    <p><?php echo htmlspecialchars($success_message); ?></p>
+                    <p style="margin-top: 15px;">A confirmation email has been sent to <strong><?php echo htmlspecialchars($email); ?></strong></p>
                     <a href="About.php" class="btn-submit" style="display: inline-block; margin-top: 15px; text-decoration: none;">Send Another Message</a>
                 </div>
             <?php else: ?>
@@ -246,22 +167,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_inquiry'])) {
                     <h2>📧 Send Us a Message</h2>
                     <p>Have questions? Want to book a session? Fill out the form below and we'll get back to you shortly.</p>
                     
-                    <form method="POST" action="" class="inquiry-form">
-                        <input type="text" name="name" placeholder="Your Full Name" value="<?php echo isset($name) ? $name : ''; ?>" required>
-                        <input type="email" name="email" placeholder="Your Email Address" value="<?php echo isset($email) ? $email : ''; ?>" required>
-                        <input type="tel" name="phone" placeholder="Your Phone Number" value="<?php echo isset($phone) ? $phone : ''; ?>" required>
+                    <form method="POST" action="../process_inquiry.php" class="inquiry-form">
+                        <input type="text" name="name" placeholder="Your Full Name" value="<?php echo isset($form_data['name']) ? htmlspecialchars($form_data['name']) : ''; ?>" required>
+                        <input type="email" name="email" placeholder="Your Email Address" value="<?php echo isset($form_data['email']) ? htmlspecialchars($form_data['email']) : ''; ?>" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number" value="<?php echo isset($form_data['phone']) ? htmlspecialchars($form_data['phone']) : ''; ?>" required>
                         
                         <select name="subject" required>
                             <option value="">Select Subject</option>
-                            <option value="General Inquiry" <?php echo (isset($subject) && $subject == 'General Inquiry') ? 'selected' : ''; ?>>General Inquiry</option>
-                            <option value="Booking Question" <?php echo (isset($subject) && $subject == 'Booking Question') ? 'selected' : ''; ?>>Booking Question</option>
-                            <option value="Pricing Request" <?php echo (isset($subject) && $subject == 'Pricing Request') ? 'selected' : ''; ?>>Pricing Request</option>
-                            <option value="Collaboration" <?php echo (isset($subject) && $subject == 'Collaboration') ? 'selected' : ''; ?>>Collaboration Opportunity</option>
-                            <option value="Feedback" <?php echo (isset($subject) && $subject == 'Feedback') ? 'selected' : ''; ?>>Feedback/Suggestion</option>
-                            <option value="Other" <?php echo (isset($subject) && $subject == 'Other') ? 'selected' : ''; ?>>Other</option>
+                            <option value="General Inquiry" <?php echo (isset($form_data['subject']) && $form_data['subject'] == 'General Inquiry') ? 'selected' : ''; ?>>General Inquiry</option>
+                            <option value="Booking Question" <?php echo (isset($form_data['subject']) && $form_data['subject'] == 'Booking Question') ? 'selected' : ''; ?>>Booking Question</option>
+                            <option value="Pricing Request" <?php echo (isset($form_data['subject']) && $form_data['subject'] == 'Pricing Request') ? 'selected' : ''; ?>>Pricing Request</option>
+                            <option value="Collaboration" <?php echo (isset($form_data['subject']) && $form_data['subject'] == 'Collaboration') ? 'selected' : ''; ?>>Collaboration Opportunity</option>
+                            <option value="Feedback" <?php echo (isset($form_data['subject']) && $form_data['subject'] == 'Feedback') ? 'selected' : ''; ?>>Feedback/Suggestion</option>
+                            <option value="Other" <?php echo (isset($form_data['subject']) && $form_data['subject'] == 'Other') ? 'selected' : ''; ?>>Other</option>
                         </select>
                         
-                        <textarea name="message" placeholder="Your Message" rows="6" required><?php echo isset($message) ? $message : ''; ?></textarea>
+                        <textarea name="message" placeholder="Your Message" rows="6" required><?php echo isset($form_data['message']) ? htmlspecialchars($form_data['message']) : ''; ?></textarea>
                         
                         <button type="submit" name="submit_inquiry" class="btn-submit">Send Message</button>
                     </form>

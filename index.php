@@ -165,7 +165,7 @@
                 </div>
             </div>
             <div class="testimonials-link">
-                <a href="Pages/Testimonials.php">View All Testimonials →</a>
+                <a href="pages/Testimonials.php">View All Testimonials →</a>
             </div>
         </div>
 
