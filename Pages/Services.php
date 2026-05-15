@@ -70,24 +70,48 @@ $conn->close();
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="../index.html"><img src="../images/hd-media-logo.svg" alt="HD Media Logo"></a>
+            <a href="../index.php"><img src="../images/hd-media-logo.svg" alt="HD Media Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
             <li><a href="Services.php" class="active">Services</a></li>
-            <li><a href="Portfolio.html">Portfolio</a></li>
-            <li><a href="Pricing.html">Pricing</a></li>
-            <li><a href="Team.html">Team</a></li>
-            <li><a href="Testimonials.html">Testimonials</a></li>
-            <li><a href="Process.html">Process</a></li>
-            <li><a href="FAQ.html">FAQ</a></li>
-            <li><a href="Bookings.html">Bookings</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Portfolio.php">Portfolio</a></li>
+            <li><a href="Pricing.php">Pricing</a></li>
+            <li><a href="Team.php">Team</a></li>
+            <li><a href="Testimonials.php">Testimonials</a></li>
+            <li><a href="Process.php">Process</a></li>
+            <li><a href="FAQ.php">FAQ</a></li>
+            <li><a href="Bookings.php">Bookings</a></li>
+            <li><a href="About.php">About</a></li>
+            <li><a href="Contact.php">Contact</a></li>
         </ul>
     </nav>
     <section class="services">
         <div class="services-wrapper">
+           
+            <div class="services-background">
+                <div class="services-gallery">
+                    <?php foreach ($images as $index => $image): ?>
+                        <img src="<?php echo htmlspecialchars($image['image_path']); ?>" 
+                             alt="<?php echo htmlspecialchars($image['image_name']); ?>"
+                             class="gallery-image <?php echo $index === 0 ? 'active' : ''; ?>"
+                             data-index="<?php echo $index; ?>">
+                    <?php endforeach; ?>
+                    
+                    <!-- Gallery Controls (Dots) -->
+                    <div class="gallery-controls">
+                        <?php foreach ($images as $index => $image): ?>
+                            <div class="gallery-dot <?php echo $index === 0 ? 'active' : ''; ?>" 
+                                 onclick="currentSlide(<?php echo $index; ?>)"></div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="services-wrapper">
+           
             <div class="services-container">
                 <h1>Our Photography Services</h1>
                 <p>We offer a range of photography services to capture your special moments beautifully.</p>
@@ -160,26 +184,19 @@ $conn->close();
                     <p>Candid, storytelling photography that captures authentic moments and emotions.</p>
                 </div>
             </div>
-            <div class="services-background">
-                <div class="services-gallery">
-                    <?php foreach ($images as $index => $image): ?>
-                        <img src="<?php echo htmlspecialchars($image['image_path']); ?>" 
-                             alt="<?php echo htmlspecialchars($image['image_name']); ?>"
-                             class="gallery-image <?php echo $index === 0 ? 'active' : ''; ?>"
-                             data-index="<?php echo $index; ?>">
-                    <?php endforeach; ?>
-                    
-                    <!-- Gallery Controls (Dots) -->
-                    <div class="gallery-controls">
-                        <?php foreach ($images as $index => $image): ?>
-                            <div class="gallery-dot <?php echo $index === 0 ? 'active' : ''; ?>" 
-                                 onclick="currentSlide(<?php echo $index; ?>)"></div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
+
         </div>
+
     </section>
+
+
+
+
+
+
+ 
+
+
 
     <script>
         let currentImageIndex = 0;
